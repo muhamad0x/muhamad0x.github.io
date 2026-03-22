@@ -3,7 +3,7 @@ layout: post
 title: "Ransomware Analysis — IOCs, Encryption Patterns, and C2 Communication"
 date: 2026-03-22
 category: "Malware Dev"
-cover_image: /assets/img/covers/ransomware-cover.jpg
+cover_image: /assets/img/covers/ransomware-cover.png
 tags: [ransomware, malware-analysis, reverse-engineering, IOCs, forensics, incident-response]
 excerpt: "A structured methodology for analyzing ransomware samples — from initial triage to encryption algorithm identification, IOC extraction, and C2 traffic analysis."
 read_time: 22

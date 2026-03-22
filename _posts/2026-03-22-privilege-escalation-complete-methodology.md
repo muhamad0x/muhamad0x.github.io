@@ -4,7 +4,7 @@ title: "Privilege Escalation — The Complete Hunting Methodology"
 date: 2026-03-22
 category: "Bug Bounty"
 severity: "Critical"
-cover_image: /assets/img/covers/privesc-cover.jpg
+cover_image: /assets/img/covers/privesc-cover.png
 tags: [privilege-escalation, broken-access-control, IDOR, methodology, web-security, API, JWT, RBAC]
 excerpt: "من horizontal إلى vertical إلى full account takeover — كل attack path في Privilege Escalation مع الـ bypass techniques والـ chaining strategies."
 read_time: 20

@@ -1,0 +1,158 @@
+// ============================================
+// POST CARDS + LISTING
+// ============================================
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.post-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0 $space-lg;
+  padding: $space-lg 0;
+  border-bottom: 1px solid $border-dim;
+  align-items: start;
+  transition: background $transition;
+
+  &:first-child { border-top: 1px solid $border-dim; }
+
+  &:hover {
+    .post-card__title { color: $accent; }
+  }
+}
+
+.post-card__date {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-dim;
+  letter-spacing: 0.04em;
+  padding-top: 4px;
+  line-height: 1.4;
+}
+
+.post-card__content {}
+
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  margin-bottom: $space-xs;
+  flex-wrap: wrap;
+}
+
+.post-card__title {
+  font-family: $font-mono;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $text-primary;
+  transition: color $transition;
+  margin-bottom: $space-xs;
+  line-height: 1.4;
+}
+
+.post-card__excerpt {
+  font-family: $font-serif;
+  font-size: 0.9rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// Tags
+.tag {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid $border;
+  color: $text-dim;
+  border-radius: 2px;
+  transition: all $transition;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+
+  &--critical {
+    border-color: rgba($red, 0.4);
+    color: $red;
+  }
+
+  &--accent {
+    border-color: rgba($accent, 0.4);
+    color: $accent;
+  }
+}
+
+// Category badge
+.category-badge {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $accent;
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: $space-xl;
+  padding-top: $space-lg;
+  border-top: 1px solid $border-dim;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+}
+
+.pagination__info {
+  color: $text-dim;
+}
+
+.pagination__links {
+  display: flex;
+  gap: $space-sm;
+
+  a, span {
+    padding: 6px 12px;
+    border: 1px solid $border;
+    color: $text-secondary;
+    font-size: 0.75rem;
+    transition: all $transition;
+  }
+
+  a:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+
+  .current {
+    border-color: $accent;
+    color: $accent;
+  }
+
+  .disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 600px) {
+  .post-card {
+    grid-template-columns: 1fr;
+    gap: $space-xs;
+  }
+
+  .post-card__date {
+    font-size: 0.68rem;
+    padding-top: 0;
+  }
+}

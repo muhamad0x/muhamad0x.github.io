@@ -1,0 +1,40 @@
+// ============================================
+// VARIABLES
+// ============================================
+
+// Colors — strict minimal palette
+$bg:          #0d0d0d;
+$bg-subtle:   #111111;
+$surface:     #161616;
+$border:      #222222;
+$border-dim:  #1a1a1a;
+
+$text-primary:   #e8e8e8;
+$text-secondary: #888888;
+$text-dim:       #555555;
+
+$accent:      #c8a96e;   // single warm gold accent — no more colors
+$accent-dim:  #9a7d4a;
+
+$red:         #e05a5a;   // used only for severity / critical tags
+
+// Typography
+$font-mono:   'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+$font-serif:  'Crimson Pro', 'Georgia', 'Times New Roman', serif;
+$font-sans:   'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+// Spacing
+$space-xs:  4px;
+$space-sm:  8px;
+$space-md:  16px;
+$space-lg:  32px;
+$space-xl:  64px;
+$space-2xl: 128px;
+
+// Layout
+$max-width:      780px;
+$max-width-wide: 1100px;
+$header-height:  60px;
+
+// Transitions
+$transition: 0.2s ease;

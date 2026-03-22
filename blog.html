@@ -1,0 +1,45 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<div class="container">
+
+  <div class="section-heading">All Posts</div>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      <article class="post-card">
+        <div class="post-card__date">
+          {{ post.date | date: "%b %d\n%Y" }}
+        </div>
+        <div class="post-card__content">
+          <div class="post-card__meta">
+            {% if post.category %}
+            <span class="category-badge">{{ post.category }}</span>
+            {% endif %}
+            {% if post.severity %}
+            <span class="tag tag--critical">{{ post.severity }}</span>
+            {% endif %}
+          </div>
+          <h2 class="post-card__title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          {% if post.excerpt %}
+          <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+          {% endif %}
+        </div>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% if site.posts.size == 0 %}
+  <p style="font-family: 'JetBrains Mono', monospace; color: #555; font-size: 0.85rem;">
+    // No posts yet. Coming soon.
+  </p>
+  {% endif %}
+
+</div>

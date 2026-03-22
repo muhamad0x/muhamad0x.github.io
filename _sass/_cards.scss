@@ -1,0 +1,141 @@
+// ============================================
+// POST CARDS — Grid with cover image
+// ============================================
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: $border-dim;
+  border: 1px solid $border-dim;
+  margin-bottom: $space-xl;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.post-card-new {
+  display: flex;
+  flex-direction: column;
+  background: $bg;
+  text-decoration: none;
+  transition: background $transition;
+  overflow: hidden;
+
+  &:hover {
+    background: $surface;
+
+    .post-card-new__cover img {
+      filter: none; // restore color on hover
+      transform: scale(1.02);
+    }
+
+    .post-card-new__cover--placeholder {
+      filter: none;
+    }
+
+    .post-card-new__title {
+      color: $accent;
+    }
+  }
+}
+
+// Cover image area
+.post-card-new__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: $surface;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) brightness(0.85); // B&W by default
+    transition: filter 0.35s ease, transform 0.35s ease;
+  }
+}
+
+// Placeholder when no cover image set
+.post-card-new__cover--placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $surface;
+  filter: grayscale(100%);
+  transition: filter 0.35s ease;
+
+  span {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $text-dim;
+    border: 1px solid $border;
+    padding: 6px 14px;
+  }
+}
+
+// Card body
+.post-card-new__body {
+  padding: $space-md;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  border-top: 1px solid $border-dim;
+}
+
+.post-card-new__meta {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  flex-wrap: wrap;
+}
+
+.post-card-new__date {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-dim;
+  letter-spacing: 0.04em;
+  margin-left: auto;
+}
+
+.post-card-new__title {
+  font-family: $font-mono;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1.4;
+  transition: color $transition;
+  margin: 0;
+}
+
+.post-card-new__excerpt {
+  font-family: $font-serif;
+  font-size: 0.82rem;
+  color: $text-secondary;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// Blog listing page — keeps the old row style
+.all-posts-link {
+  margin-top: $space-lg;
+}
+
+.empty-state {
+  font-family: $font-mono;
+  color: $text-dim;
+  font-size: 0.85rem;
+  padding: $space-xl 0;
+}

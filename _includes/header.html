@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="header-inner">
+
+    <a href="{{ '/' | relative_url }}" class="site-title">
+      <span class="prompt">~/</span>muhamad0x<span class="cursor"></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">[menu]</button>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>home</a>
+      <a href="{{ '/blog' | relative_url }}" {% if page.url contains '/blog' %}class="active"{% endif %}>blog</a>
+      <a href="{{ '/about' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>about</a>
+      <a href="https://github.com/muhamad0x" target="_blank" rel="noopener">github</a>
+    </nav>
+
+  </div>
+</header>

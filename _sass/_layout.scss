@@ -1,0 +1,316 @@
+// ============================================
+// LAYOUT + UTILITIES
+// ============================================
+
+// Main wrapper
+.page-wrapper {
+  padding-top: $header-height;
+  min-height: 100vh;
+}
+
+// Container
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $space-xl $space-lg;
+
+  &--wide {
+    max-width: $max-width-wide;
+  }
+}
+
+// Section heading
+.section-heading {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-dim;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: $space-xl;
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+
+  &::before {
+    content: '//';
+    color: $accent;
+  }
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $border-dim;
+  }
+}
+
+// ============================================
+// HERO — Homepage
+// ============================================
+
+.hero {
+  padding: $space-2xl 0 $space-xl;
+  border-bottom: 1px solid $border-dim;
+  margin-bottom: $space-xl;
+}
+
+.hero__eyebrow {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $accent;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: $space-md;
+}
+
+.hero__title {
+  font-family: $font-mono;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 400;
+  color: $text-primary;
+  line-height: 1.2;
+  margin-bottom: $space-lg;
+  letter-spacing: -0.02em;
+}
+
+.hero__title--dim {
+  color: $text-dim;
+}
+
+.hero__description {
+  font-family: $font-serif;
+  font-size: 1rem;
+  color: $text-secondary;
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: $space-lg;
+}
+
+.hero__links {
+  display: flex;
+  gap: $space-md;
+  flex-wrap: wrap;
+}
+
+.hero__link {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  color: $text-secondary;
+  letter-spacing: 0.04em;
+  border: 1px solid $border;
+  padding: 8px 16px;
+  transition: all $transition;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+
+  &--primary {
+    border-color: $accent;
+    color: $accent;
+
+    &:hover {
+      background: rgba($accent, 0.06);
+    }
+  }
+}
+
+// ============================================
+// ABOUT PAGE
+// ============================================
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: $space-2xl;
+  align-items: start;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-content {
+  h2 {
+    font-size: 1.1rem;
+    margin-top: $space-xl;
+    margin-bottom: $space-md;
+    color: $accent;
+
+    &:first-child { margin-top: 0; }
+  }
+
+  p {
+    color: $text-secondary;
+    line-height: 1.8;
+  }
+}
+
+.about-sidebar {}
+
+.sidebar-card {
+  background: $surface;
+  border: 1px solid $border;
+  padding: $space-lg;
+  margin-bottom: $space-md;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+
+  &__title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $accent;
+    margin-bottom: $space-md;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid $border-dim;
+    color: $text-secondary;
+
+    &:last-child { border-bottom: none; }
+
+    span:last-child {
+      color: $text-dim;
+      font-size: 0.72rem;
+    }
+  }
+}
+
+// Skill bar
+.skill-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    color: $text-secondary;
+    padding: 5px 0;
+    border-bottom: 1px solid $border-dim;
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+
+    &:last-child { border-bottom: none; }
+
+    &::before {
+      content: '▸';
+      color: $accent;
+      font-size: 0.6rem;
+    }
+  }
+}
+
+// ============================================
+// FOOTER
+// ============================================
+
+.site-footer {
+  border-top: 1px solid $border-dim;
+  padding: $space-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-dim;
+  letter-spacing: 0.04em;
+  max-width: $max-width-wide;
+  margin: $space-xl auto 0;
+
+  a {
+    color: $text-dim;
+    transition: color $transition;
+
+    &:hover { color: $accent; }
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: $space-lg;
+}
+
+// ============================================
+// SYNTAX HIGHLIGHT — Rouge
+// ============================================
+
+.highlight {
+  background: $surface;
+  border: 1px solid $border;
+  border-left: 3px solid $accent;
+  padding: 0;
+  margin: $space-lg 0;
+  overflow-x: auto;
+
+  pre {
+    border: none;
+    margin: 0;
+    padding: $space-md $space-lg;
+    background: transparent;
+  }
+}
+
+// Rouge tokens
+.highlight .c  { color: #5c6370; font-style: italic }     // Comment
+.highlight .err { color: $red }                             // Error
+.highlight .k  { color: #c678dd }                          // Keyword
+.highlight .o  { color: $text-secondary }                  // Operator
+.highlight .cm { color: #5c6370; font-style: italic }      // Comment.Multiline
+.highlight .cp { color: #5c6370 }
+.highlight .c1 { color: #5c6370; font-style: italic }
+.highlight .cs { color: #5c6370; font-style: italic }
+.highlight .gd { color: $red }
+.highlight .ge { font-style: italic }
+.highlight .gh { color: $text-primary; font-weight: bold }
+.highlight .gi { color: #98c379 }
+.highlight .gp { color: $accent }
+.highlight .gs { font-weight: bold }
+.highlight .gu { color: $accent }
+.highlight .kc { color: #c678dd }
+.highlight .kd { color: #c678dd }
+.highlight .kn { color: #c678dd }
+.highlight .kp { color: #c678dd }
+.highlight .kr { color: #c678dd }
+.highlight .kt { color: #e5c07b }
+.highlight .m  { color: #d19a66 }
+.highlight .s  { color: #98c379 }
+.highlight .na { color: #e06c75 }
+.highlight .nb { color: $text-primary }
+.highlight .nc { color: #e5c07b }
+.highlight .no { color: #e06c75 }
+.highlight .nd { color: #c678dd }
+.highlight .ni { color: $text-primary }
+.highlight .ne { color: $red }
+.highlight .nf { color: #61afef }
+.highlight .nl { color: $text-primary }
+.highlight .nn { color: #e5c07b }
+.highlight .nt { color: #e06c75 }
+.highlight .nv { color: $text-primary }
+.highlight .ow { color: #c678dd }
+.highlight .w  { color: $text-secondary }
+.highlight .mf { color: #d19a66 }
+.highlight .mh { color: #d19a66 }
+.highlight .mi { color: #d19a66 }
+.highlight .mo { color: #d19a66 }
+.highlight .sb { color: #98c379 }
+.highlight .sc { color: #98c379 }
+.highlight .sd { color: #98c379; font-style: italic }
+.highlight .s2 { color: #98c379 }
+.highlight .se { color: #d19a66 }
+.highlight .sh { color: #98c379 }
+.highlight .si { color: #d19a66 }
+.highlight .sx { color: #98c379 }
+.highlight .sr { color: #56b6c2 }
+.highlight .s1 { color: #98c379 }
+.highlight .ss { color: #d19a66 }
+.highlight .bp { color: $text-primary }
+.highlight .vc { color: #e06c75 }
+.highlight .vg { color: #e06c75 }
+.highlight .vi { color: #e06c75 }
+.highlight .il { color: #d19a66 }

@@ -1,0 +1,136 @@
+// ============================================
+// HEADER + NAV
+// ============================================
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  background: rgba($bg, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $border-dim;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: $max-width-wide;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Logo / Site Title
+.site-title {
+  font-family: $font-mono;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: $text-primary;
+  letter-spacing: 0.02em;
+
+  &:hover { color: $text-primary; }
+
+  .prompt {
+    color: $accent;
+    user-select: none;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: $accent;
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 1.2s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+// Nav
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+
+  a {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    color: $text-secondary;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color $transition;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $accent;
+      transition: width $transition;
+    }
+
+    &:hover {
+      color: $text-primary;
+      &::after { width: 100%; }
+    }
+
+    &.active {
+      color: $accent;
+    }
+  }
+}
+
+// Mobile nav toggle (hamburger)
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid $border;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: $text-secondary;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    border-color: $accent;
+    color: $accent;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-nav {
+    display: none;
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    right: 0;
+    background: $bg;
+    border-bottom: 1px solid $border;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $space-md $space-lg;
+    gap: $space-md;
+
+    &.open { display: flex; }
+
+    a { font-size: 0.85rem; }
+  }
+
+  .nav-toggle { display: block; }
+}

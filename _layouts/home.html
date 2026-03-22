@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<div class="container container--wide">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero__eyebrow">Security Researcher</p>
+    <h1 class="hero__title">
+      muhamad0x<span class="hero__title--dim">.</span>
+    </h1>
+    <p class="hero__description">
+      Bug Bounty Hunter · Broken Access Control · Logic Bugs · Red Team · Malware Dev.
+      Writing about offensive techniques, methodology, and real-world findings.
+    </p>
+    <div class="hero__links">
+      <a href="{{ '/blog' | relative_url }}" class="hero__link hero__link--primary">read the blog</a>
+      <a href="{{ '/about' | relative_url }}" class="hero__link">about</a>
+      <a href="https://github.com/muhamad0x" class="hero__link" target="_blank" rel="noopener">github</a>
+      <a href="https://hackerone.com/muhamad0x" class="hero__link" target="_blank" rel="noopener">hackerone</a>
+      <a href="https://twitter.com/muhamad0x" class="hero__link" target="_blank" rel="noopener">twitter</a>
+    </div>
+  </section>
+
+  <!-- RECENT POSTS -->
+  <div class="section-heading">Recent Posts</div>
+
+  <div class="cards-grid">
+    {% for post in site.posts limit:6 %}
+    <a href="{{ post.url | relative_url }}" class="post-card-new">
+
+      <!-- Cover image — grayscale by default, color on hover -->
+      <div class="post-card-new__cover">
+        {% if post.cover_image %}
+        <img src="{{ post.cover_image | relative_url }}" alt="{{ post.title }}" loading="lazy" />
+        {% else %}
+        <div class="post-card-new__cover--placeholder">
+          <span>{{ post.category | default: "post" }}</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="post-card-new__body">
+        <div class="post-card-new__meta">
+          {% if post.category %}<span class="category-badge">{{ post.category }}</span>{% endif %}
+          {% if post.severity %}<span class="tag tag--critical">{{ post.severity }}</span>{% endif %}
+          <span class="post-card-new__date">{{ post.date | date: "%b %d, %Y" }}</span>
+        </div>
+        <h2 class="post-card-new__title">{{ post.title }}</h2>
+        {% if post.excerpt %}
+        <p class="post-card-new__excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+      </div>
+
+    </a>
+    {% endfor %}
+  </div>
+
+  {% if site.posts.size == 0 %}
+  <p class="empty-state">// No posts yet.</p>
+  {% endif %}
+
+  {% if site.posts.size > 6 %}
+  <div class="all-posts-link">
+    <a href="{{ '/blog' | relative_url }}" class="hero__link">all posts →</a>
+  </div>
+  {% endif %}
+
+</div>
+
+{{ content }}

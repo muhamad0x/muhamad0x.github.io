@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="container">
+
+  <article>
+
+    <!-- POST HEADER -->
+    <header class="post-header">
+      <div class="post-header__top">
+        <span>{{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.category %}
+        <span>·</span>
+        <span>{{ page.category }}</span>
+        {% endif %}
+        {% if page.read_time %}
+        <span>·</span>
+        <span>{{ page.read_time }} min read</span>
+        {% endif %}
+      </div>
+
+      <h1 class="post-header__title">{{ page.title }}</h1>
+
+      {% if page.tags.size > 0 %}
+      <div class="post-header__tags">
+        {% for tag in page.tags %}
+        <a href="{{ '/blog/tag/' | append: tag | relative_url }}" class="tag">{{ tag }}</a>
+        {% endfor %}
+        {% if page.severity %}
+        <span class="tag tag--critical">{{ page.severity }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </header>
+
+    <!-- POST BODY -->
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+  </article>
+
+  <!-- POST NAVIGATION -->
+  <nav class="post-footer">
+    <div class="post-nav--prev">
+      {% if page.previous.url %}
+      <div class="post-nav__label">← Previous</div>
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav__title">{{ page.previous.title }}</a>
+      {% endif %}
+    </div>
+    <div class="post-nav--next">
+      {% if page.next.url %}
+      <div class="post-nav__label">Next →</div>
+      <a href="{{ page.next.url | relative_url }}" class="post-nav__title">{{ page.next.title }}</a>
+      {% endif %}
+    </div>
+  </nav>
+
+</div>
